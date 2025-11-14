@@ -11,78 +11,56 @@ int main() {
     // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
 
     //Variáveis para determinar o tamanho do taboleiro e o tamanho do navio
-    const int TAMANHO = 10;
+        const int TAMANHO = 10;
     const int TAMANHO_NAVIO = 3;
+
+    // Matriz do tabuleiro 10x10 (todas posições começam como água = 0)
     int tabuleiro[TAMANHO][TAMANHO];
 
-    // Inicializa o tabuleiro com 0 (água)
-    for (int i = 0; i < TAMANHO; i++) {
+   
+    // 1) Inicializando o tabuleiro com zeros
+       for (int i = 0; i < TAMANHO; i++) {
         for (int j = 0; j < TAMANHO; j++) {
-            tabuleiro[i][j] = 0;
+            tabuleiro[i][j] = 0;  // água
         }
     }
-        // Define os navios (3 partes cada)
-    int navioHorizontal[TAMANHO_NAVIO] = {3, 3, 3};
-    int navioVertical[TAMANHO_NAVIO] = {3, 3, 3};
 
-    // Coordenadas iniciais (você pode mudar)
-    int linhaHorizontal = 2;  // linha 3 (porque começa do 0)
-    int colunaHorizontal = 1; // coluna B (porque começa do 0)
-    int linhaVertical = 5;    // linha 6
-    int colunaVertical = 7;   // coluna H
+   
+    // 2) Coordenadas iniciais dos navios
+    // (definidas diretamente no código)
+       int linhaHorizontal = 2;   // linha 3
+    int colunaHorizontal = 1;  // coluna B
+    int linhaVertical   = 5;   // linha 6
+    int colunaVertical  = 7;   // coluna H
 
-        // Posiciona o navio horizontal
-    for (int i = 0; i < TAMANHO_NAVIO; i++) {
-        tabuleiro[linhaHorizontal][colunaHorizontal + i] = navioHorizontal[i];
+   
+    // 3) Posicionar navio horizontal (3 casas)
+     for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        tabuleiro[linhaHorizontal][colunaHorizontal + i] = 3;
     }
 
-    // Posiciona o navio vertical
-    for (int i = 0; i < TAMANHO_NAVIO; i++) {
-        tabuleiro[linhaVertical + i][colunaVertical] = navioVertical[i];
+  
+    // 4) Posicionar navio vertical (3 casas)
+     for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        tabuleiro[linhaVertical + i][colunaVertical] = 3;
     }
-    
-        // Exibe o cabeçalho (colunas com letras)
+
+    // 5) Exibir o tabuleiro
+    // Cabeçalho com letras A-J
     printf("    ");
     for (int letra = 0; letra < TAMANHO; letra++) {
         printf(" %c ", 'A' + letra);
     }
     printf("\n");
 
-    // Exibe o tabuleiro com linhas numeradas
+    // Linhas numeradas 1–10
     for (int i = 0; i < TAMANHO; i++) {
-       printf("%3d ", i + 1); // mostra os números das linhas
-       for (int j = 0; j < TAMANHO; j++) {
+        printf("%3d ", i + 1);  // número da linha
+        for (int j = 0; j < TAMANHO; j++) {
             printf(" %d ", tabuleiro[i][j]);
         }
         printf("\n");
     }
-    
-
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
-
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
-    
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
-
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
 
     return 0;
 }
