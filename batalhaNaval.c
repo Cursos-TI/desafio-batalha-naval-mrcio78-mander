@@ -10,6 +10,54 @@ int main() {
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
     // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
 
+    //Variáveis para determinar o tamanho do taboleiro e o tamanho do navio
+    const int TAMANHO = 10;
+    const int TAMANHO_NAVIO = 3;
+    int tabuleiro[TAMANHO][TAMANHO];
+
+    // Inicializa o tabuleiro com 0 (água)
+    for (int i = 0; i < TAMANHO; i++) {
+        for (int j = 0; j < TAMANHO; j++) {
+            tabuleiro[i][j] = 0;
+        }
+    }
+        // Define os navios (3 partes cada)
+    int navioHorizontal[TAMANHO_NAVIO] = {3, 3, 3};
+    int navioVertical[TAMANHO_NAVIO] = {3, 3, 3};
+
+    // Coordenadas iniciais (você pode mudar)
+    int linhaHorizontal = 2;  // linha 3 (porque começa do 0)
+    int colunaHorizontal = 1; // coluna B (porque começa do 0)
+    int linhaVertical = 5;    // linha 6
+    int colunaVertical = 7;   // coluna H
+
+        // Posiciona o navio horizontal
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        tabuleiro[linhaHorizontal][colunaHorizontal + i] = navioHorizontal[i];
+    }
+
+    // Posiciona o navio vertical
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        tabuleiro[linhaVertical + i][colunaVertical] = navioVertical[i];
+    }
+    
+        // Exibe o cabeçalho (colunas com letras)
+    printf("    ");
+    for (int letra = 0; letra < TAMANHO; letra++) {
+        printf(" %c ", 'A' + letra);
+    }
+    printf("\n");
+
+    // Exibe o tabuleiro com linhas numeradas
+    for (int i = 0; i < TAMANHO; i++) {
+       printf("%3d ", i + 1); // mostra os números das linhas
+       for (int j = 0; j < TAMANHO; j++) {
+            printf(" %d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+    
+
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
