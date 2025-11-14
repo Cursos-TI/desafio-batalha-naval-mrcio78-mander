@@ -11,7 +11,7 @@ int main() {
     // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
 
     //Variáveis para determinar o tamanho do taboleiro e o tamanho do navio
-        const int TAMANHO = 10;
+    const int TAMANHO = 10;
     const int TAMANHO_NAVIO = 3;
 
     // Matriz do tabuleiro 10x10 (todas posições começam como água = 0)
@@ -19,7 +19,7 @@ int main() {
 
    
     // 1) Inicializando o tabuleiro com zeros
-       for (int i = 0; i < TAMANHO; i++) {
+    for (int i = 0; i < TAMANHO; i++) {
         for (int j = 0; j < TAMANHO; j++) {
             tabuleiro[i][j] = 0;  // água
         }
@@ -28,20 +28,20 @@ int main() {
    
     // 2) Coordenadas iniciais dos navios
     // (definidas diretamente no código)
-       int linhaHorizontal = 2;   // linha 3
+    int linhaHorizontal = 2;   // linha 3
     int colunaHorizontal = 1;  // coluna B
     int linhaVertical   = 5;   // linha 6
     int colunaVertical  = 7;   // coluna H
 
    
     // 3) Posicionar navio horizontal (3 casas)
-     for (int i = 0; i < TAMANHO_NAVIO; i++) {
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
         tabuleiro[linhaHorizontal][colunaHorizontal + i] = 3;
     }
 
   
     // 4) Posicionar navio vertical (3 casas)
-     for (int i = 0; i < TAMANHO_NAVIO; i++) {
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
         tabuleiro[linhaVertical + i][colunaVertical] = 3;
     }
 
@@ -51,6 +51,7 @@ int main() {
     for (int letra = 0; letra < TAMANHO; letra++) {
         printf(" %c ", 'A' + letra);
     }
+    
     printf("\n");
 
     // Linhas numeradas 1–10
